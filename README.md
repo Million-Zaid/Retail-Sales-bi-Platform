@@ -52,11 +52,20 @@ This project simulates a real-world BI engagement for a retail company. The pipe
 
 ## Dashboard Preview
 
-*(Add screenshots of your Tableau dashboard here. Place them in a `screenshots/` folder in the repo and reference them like below.)*
-
+### Full Dashboard
 ![Dashboard Overview](screenshots/dashboard.png)
-![Profit by State](screenshots/map.png)
-![Trajectory Chart](screenshots/slope_chart.png)
+
+### Actual vs Target Sales by Store
+![Actual vs Target Sales](screenshots/actual_vs_target.png)
+
+### % of Target Achieved by Store
+![Percent of Target Achieved](screenshots/percent_of_target.png)
+
+### Product Category Sales by Day of Week
+![Product Sales by Day of Week](screenshots/day_of_week.png)
+
+### Profit by State
+![Profit by State Map](screenshots/map.png)
 
 ---
 
