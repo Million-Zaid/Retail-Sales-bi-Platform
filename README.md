@@ -12,6 +12,84 @@ This project simulates a real-world BI engagement for a retail company. The pipe
 
 ---
 
+## Architecture
+
+```mermaid
+flowchart TD
+    subgraph CLOUD_SOURCE["Cloud Source"]
+        A["Azure Blob Storage<br/>12 CSV files"]
+    end
+
+    subgraph SNOWFLAKE["Snowflake Cloud Data Warehouse"]
+        B["External Stages<br/>12 cloud stages"]
+        C["Staging Layer<br/>Raw CSV mirrors"]
+
+        subgraph WAREHOUSE["Warehouse Layer - Star Schema"]
+            D1["Dim_Product"]
+            D2["Dim_Store"]
+            D3["Dim_Customer"]
+            D4["Dim_Reseller"]
+            D5["Dim_Channel"]
+            D6["Dim_Location"]
+            D7["DIM_DATE"]
+            F1["Fact_SalesActual"]
+            F2["Fact_ProductSalesTarget"]
+            F3["Fact_SRCSalesTarget"]
+        end
+
+        subgraph VIEWS["Access Layer - Secure Views"]
+            V1["10 Pass-through Views"]
+            V2["3 Analytical Views"]
+        end
+    end
+
+    subgraph REPORTING["Reporting"]
+        T["Tableau Desktop<br/>Interactive Dashboard"]
+    end
+
+    A -->|COPY INTO| B
+    B --> C
+    C --> D1
+    C --> D2
+    C --> D3
+    C --> D4
+    C --> D5
+    C --> D6
+    C --> D7
+    C --> F1
+    C --> F2
+    C --> F3
+    D1 -.FK.-> F1
+    D2 -.FK.-> F1
+    D7 -.FK.-> F1
+    D7 -.FK.-> F2
+    D7 -.FK.-> F3
+    D1 --> V1
+    D2 --> V1
+    F1 --> V1
+    F1 --> V2
+    F2 --> V2
+    F3 --> V2
+    V1 --> T
+    V2 --> T
+
+    classDef source fill:#E8F4FD,stroke:#0366D6,color:#000
+    classDef stage fill:#FFF4E5,stroke:#F66A0A,color:#000
+    classDef dim fill:#E6FFED,stroke:#28A745,color:#000
+    classDef fact fill:#FFE8EC,stroke:#D73A49,color:#000
+    classDef view fill:#F3E8FF,stroke:#6F42C1,color:#000
+    classDef report fill:#FFF5B4,stroke:#B08800,color:#000
+
+    class A source
+    class B,C stage
+    class D1,D2,D3,D4,D5,D6,D7 dim
+    class F1,F2,F3 fact
+    class V1,V2 view
+    class T report
+```
+
+---
+
 ## Business Questions Answered
 
 1. How are stores 10 and 21 performing against their targets, and will they hit 2014 goals?
