@@ -152,13 +152,14 @@ flowchart TD
 
 ## Repository Contents
 
-| File | Purpose |
+| Folder / File | Purpose |
 |---|---|
-| `RetailSalesBI_STAGING.sql` | Creates the database, warehouse, Azure cloud stages, file format, and staging tables; loads raw CSV data |
-| `RetailSalesBI_DIMENSION_LOADS.sql` | Creates and populates all dimension tables with surrogate keys and unknown-member rows |
-| `RetailSalesBI_FACT_TABLE_LOADING.sql` | Creates fact tables with foreign-key constraints and loads them with null handling |
-| `RetailSaleBI_VIEWS.sql` | Builds the secure views layer (pass-through + analytical) |
-| `IMT577_Final_Visualizations.twbx` | Tableau workbook with the dashboard |
+| `sql/01_staging.sql` | Creates the database, warehouse, Azure cloud stages, file format, and staging tables; loads raw CSV data |
+| `sql/02_dimension_loads.sql` | Creates and populates all dimension tables with surrogate keys and unknown-member rows |
+| `sql/03_fact_loads.sql` | Creates fact tables with foreign-key constraints and loads them with null handling |
+| `sql/04_views.sql` | Builds the secure views layer (pass-through + analytical) |
+| `tableau/retail-sales_visualizations.twbx` | Tableau workbook with the dashboard |
+| `presentation/retail-sales-analysis.pdf` | Business analysis presentation delivered to stakeholders |
 | `ERD.png` | Dimensional model diagram |
 | `TECHNICAL.md` | Deep dive into architecture, ETL design, and key decisions |
 
