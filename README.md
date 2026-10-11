@@ -140,10 +140,10 @@ flowchart TD
 ![Percent of Target Achieved](screenshots/percent_of_target.png)
 
 ### % of Target Achieved Trajectory by Year
-![Percent of Target Trajectory from 2013 to 2014](screenshots/percent_of_target.png)
+![Percent of Target Trajectory from 2013 to 2014](screenshots/percent_of_target_trajectory.png)
 
 ### Product Category Sales by Day of Week
-![Product Sales by Day of Week](screenshots/percent_of_target_trajectory.png)
+![Product Sales by Day of Week](screenshots/day_of_week.png)
 
 ### Profit by State
 ![Profit by State Map](screenshots/map.png)
